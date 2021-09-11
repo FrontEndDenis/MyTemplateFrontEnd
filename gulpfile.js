@@ -6,7 +6,7 @@ const { clear } = require('./gulp/tasks/clear');
 const { html } = require('./gulp/tasks/html');
 const { cssDev, cssBuild } = require('./gulp/tasks/css');
 const { jsDev, jsBuild } = require('./gulp/tasks/js');
-const { imgDev, imgBuild, svg } = require('./gulp/tasks/img');
+const { imgDev, imgBuild, svg, sprite } = require('./gulp/tasks/img');
 const { fontsDev, fontsBuild } = require('./gulp/tasks/fonts');
 const { video } = require('./gulp/tasks/video');
 const { json } = require('./gulp/tasks/json');
@@ -22,6 +22,7 @@ function dev() {
 			jsDev,
 			imgDev,
 			svg,
+			sprite,
 			fontsDev,
 			video,
 			json
@@ -38,6 +39,7 @@ function build() {
 			jsBuild,
 			imgBuild,
 			svg,
+			sprite,
 			fontsBuild,
 			video,
 			json
@@ -54,6 +56,7 @@ exports.jsBuild = jsBuild;
 exports.imgDev = imgDev;
 exports.imgBuild = imgBuild;
 exports.svg = svg;
+exports.sprite = sprite;
 exports.fontsDev = fontsDev;
 exports.fontsBuild = fontsBuild;
 exports.video = video;

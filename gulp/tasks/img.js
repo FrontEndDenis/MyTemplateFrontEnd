@@ -10,13 +10,15 @@ const path 			= require('../path');
 
 let srcImage = {
 	img: path.input + 'static/images/**/*.{jpg,png,svg,gif,ico,webp}',
-	svg: path.input + 'static/images/svg/*.svg'
+	svg: path.input + 'static/images/svg/general/*.svg',
+	sprite: path.input + 'static/images/svg/sprite/*.svg'
 }
 
 function imgDev() {
 	return gulp.src([
 		srcImage.img,
-		'!' + srcImage.svg
+		`!${srcImage.svg}`,
+		`!${srcImage.sprite}`
 	])
 	.pipe(gulp.dest(path.output + 'static/images'))
 	.pipe(webp({ quality: 80 }))
@@ -27,7 +29,8 @@ function imgDev() {
 function imgBuild() {
 	return gulp.src([
 		srcImage.img,
-		'!' + srcImage.svg
+		`!${srcImage.svg}`,
+		`!${srcImage.sprite}`
 	])
 	.pipe(imagemin([
 		imagemin.gifsicle({ interlaced: true }),
@@ -57,6 +60,12 @@ function imgBuild() {
 
 function svg() {
 	return gulp.src(srcImage.svg)
+	.pipe(gulp.dest(path.output + 'static/images/svg/general'))
+	.pipe(browserSync.stream({ once: true }));
+}
+
+function sprite() {
+	return gulp.src(srcImage.sprite)
 	.pipe(imagemin([
 		imagemin.svgo({
 			plugins: [
@@ -80,3 +89,4 @@ function svg() {
 exports.imgDev = imgDev;
 exports.imgBuild = imgBuild;
 exports.svg = svg;
+exports.sprite = sprite;

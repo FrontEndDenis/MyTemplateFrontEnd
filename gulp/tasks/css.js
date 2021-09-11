@@ -6,7 +6,7 @@ const minifyCSS		= require('gulp-minify-css');
 const postcss 		= require('gulp-postcss');
 const autoprefixer 	= require('autoprefixer');
 const gcmq 			= require('gulp-group-css-media-queries');
-const webpcss 		= require('gulp-webp-css');
+// const webpcss 		= require('gulp-webp-css'); не работает, отключен временно
 
 sass.compiler 		= require('node-sass');
 

@@ -1,0 +1,21 @@
+$grid-columns:      12;
+$grid-gutter-width: 24px;
+
+$modal-md: 700px;
+$modal-content-border-width: 0;
+$modal-content-border-radius: 0;
+$modal-content-box-shadow-xs: none;
+
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+
+@import "../../../../node_modules/bootstrap/scss/modal";
+// Все компоненты (много мусора)
+// @import "../../../../node_modules/bootstrap/scss/bootstrap-grid";
+
+// Только сетка
+$include-column-box-sizing: true !default;
+
+@import "../../../../node_modules/bootstrap/scss/containers";
+@import "../../../../node_modules/bootstrap/scss/grid";
